@@ -1,0 +1,7 @@
+int11 x, y, z;
+
+invariant x > 0, y > 0, z > 0;
+invariant x * x * x + y * y * y == z * z * z;
+invariant x <= y;
+
+expose x, y, z;

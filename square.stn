@@ -1,0 +1,28 @@
+array16<int> nums;
+int target;
+int sq;
+
+function^ sumsToTarget?(a, b, c, d) {
+  invariant a + b + c + d == target;
+};
+
+invariant nums.all?(function (n) { return n > 0; });
+invariant nums.uniq?;
+
+# Rows
+sumsToTarget?(nums[0], nums[1], nums[2], nums[3]);
+sumsToTarget?(nums[4], nums[5], nums[6], nums[7]);
+sumsToTarget?(nums[8], nums[9], nums[10], nums[11]);
+sumsToTarget?(nums[12], nums[13], nums[14], nums[15]);
+
+# Columns
+sumsToTarget?(nums[0], nums[4], nums[8], nums[12]);
+sumsToTarget?(nums[1], nums[5], nums[9], nums[13]);
+sumsToTarget?(nums[2], nums[6], nums[10], nums[14]);
+sumsToTarget?(nums[3], nums[7], nums[11], nums[15]);
+
+# Diagonals
+sumsToTarget?(nums[0], nums[5], nums[10], nums[15]);
+sumsToTarget?(nums[3], nums[6], nums[9], nums[12]);
+
+expose nums, target;
